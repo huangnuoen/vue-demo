@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-    <h2 v-if="flag">{{msg}}</h2>
+    <h2 v-if="flag" v-html="msg"></h2>
     <h2 v-else>{{msg1}}</h2>
     <button @click="change">change</button>
     <button @click="toggle">toggle</button>
@@ -28,6 +28,11 @@ export default {
     },
     toggle() {
       this.flag = !this.flag;
+    }
+  },
+  watch: {
+    msg() {
+      // this.msg = Math.random();
     }
   }
 };
